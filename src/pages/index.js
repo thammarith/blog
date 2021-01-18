@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Header from '../components/common/Header/Header';
-import Layout from '../components/layout';
 import SEO from '../components/seo';
+
+import Header from '../components/common/Header/Header';
+import PostCard from '../components/common/PostCard/PostCard';
+import Layout from '../components/layout';
 
 const BlogIndex = ({ data, location }) => {
 	const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -13,7 +15,10 @@ const BlogIndex = ({ data, location }) => {
 		<Layout location={location} title={siteTitle}>
 			<SEO title="All posts" />
 			<Header />
-			<ol style={{ listStyle: `none` }}>
+
+			{posts.map(post => <PostCard key={post.key} post={post} />)}
+
+			{/* <ol style={{ listStyle: `none` }}>
 				{posts.map(post => {
 					const title = post.frontmatter.title || post.fields.slug;
 
@@ -31,6 +36,7 @@ const BlogIndex = ({ data, location }) => {
 											itemProp="url"
 										>
 											<span itemProp="headline">
+												({post.frontmatter.isFeatured ? 'Featured!' : 'Normal'})
 												{title}
 											</span>
 										</Link>
@@ -51,7 +57,7 @@ const BlogIndex = ({ data, location }) => {
 						</li>
 					);
 				})}
-			</ol>
+			</ol> */}
 		</Layout>
 	);
 };
@@ -75,6 +81,7 @@ export const pageQuery = graphql`
 					date(formatString: "D MMM YYYY")
 					title
 					description
+					isFeatured
 				}
 			}
 		}
