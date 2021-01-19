@@ -16,7 +16,9 @@ const BlogIndex = ({ data, location }) => {
 			<SEO title="All posts" />
 			<Header />
 
-			{posts.map(post => <PostCard key={post.key} post={post} />)}
+			<div style={{ padding: '0 4rem 2rem' }}>
+				{posts.map(post => <PostCard key={post.key} post={post} />)}
+			</div>
 
 			{/* <ol style={{ listStyle: `none` }}>
 				{posts.map(post => {

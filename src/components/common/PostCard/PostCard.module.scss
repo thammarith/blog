@@ -1,7 +1,36 @@
 .featuredPostCard {
-    background: red;
+    font-weight: 600;
+    font-size: 4rem;
+    
+    &Title--Anantason {
+        font-size: 4rem;
+        line-height: 160%;
+        font-family: 'Anantason Non Commercial Use';
+    }
+
+    &Title--Friday {
+        font-family: 'FC Friday';
+    }
+
+    &Title--Iconic {
+        font-family: 'FC Iconic';
+    }
+}
+
+.featuredPostCardCoverImage {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+	&Container {
+		display: grid;
+
+		& > * {
+			grid-area: 1/1;
+		}
+	}
 }
 
 .regularPostCard {
-    background: blue;
+	background: blue;
 }

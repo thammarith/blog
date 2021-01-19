@@ -3,27 +3,49 @@ import React from 'react';
 import styles from './PostCard.module.scss';
 
 interface PostCardProps {
-    post: any;
+	post: any;
 }
 
-{/* <div>{JSON.stringify(post)}</div> */}
+interface FeaturedPostCardCoverImageProps {
+	imageUrl: string;
+}
 
-const PostCard: React.FC<PostCardProps> = ({ post }: PostCardProps) => {
-    const { isFeatured } = post.frontmatter;
-    return isFeatured ? <FeaturedPostCard post={post} /> : <RegularPostCard post={post} />;
+{
+	/* <div>{JSON.stringify(post)}</div> */
+}
+
+const PostCard: React.FC<PostCardProps> = ({ post }) => {
+	const { isFeatured } = post.frontmatter;
+	// prettier-ignore
+	return isFeatured ? <FeaturedPostCard post={post} /> : <RegularPostCard post={post} />;
 };
 
-const FeaturedPostCard: React.FC<PostCardProps> = ({ post }: PostCardProps) => {
-    return (
-        <div className={styles.featuredPostCard}>FeaturedPostCard</div>
-    )
-}
+const FeaturedPostCard: React.FC<PostCardProps> = ({ post }) => (
+	<div className={styles.featuredPostCard}>
+		<FeaturedPostCardCoverImage imageUrl="https://placekitten.com/2000/2000" />
+		{/* Currently, it makes sense to use H2. However, if there're additional sub-H1 headings in the future, make this H3 */}
+		{/* <h2 className={styles.featuredPostCardTitleFriday}>Keyboard & Hello, world! สวัสดีชาวโลก! รีวิวคีย์บอร์ด</h2>
+		<h2 className={styles.featuredPostCardTitleAnantason}>Keyboard & Hello, world! สวัสดีชาวโลก! รีวิวคีย์บอร์ด</h2> */}
+		<h2 className={styles.featuredPostCardTitleIconic}>
+			Keyboard & Hello, world! สวัสดีชาวโลก! รีวิวคีย์บอร์ด
+		</h2>
+	</div>
+);
 
-const RegularPostCard: React.FC<PostCardProps> = ({ post }: PostCardProps) => {
-    return (
-        <div className={styles.regularPostCard}>RegularPostCard</div>
-    )
-}
+const FeaturedPostCardCoverImage: React.FC<FeaturedPostCardCoverImageProps> = ({
+	imageUrl,
+}) => (
+	<div className={styles.featuredPostCardCoverImageContainer}>
+		<svg viewBox="0 0 1618 1000"></svg>
+		<div
+			className={styles.featuredPostCardCoverImage}
+			style={{ backgroundImage: `url('${imageUrl}')` }}
+		></div>
+	</div>
+);
+
+const RegularPostCard: React.FC<PostCardProps> = ({ post }: PostCardProps) => (
+	<div className={styles.regularPostCard}>RegularPostCard</div>
+);
 
 export default PostCard;
-
