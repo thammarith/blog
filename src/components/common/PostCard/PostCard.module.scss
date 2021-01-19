@@ -1,27 +1,17 @@
 .featuredPostCard {
-    font-weight: 600;
-    font-size: 4rem;
-    
-    &Title--Anantason {
-        font-size: 4rem;
-        line-height: 160%;
-        font-family: 'Anantason Non Commercial Use';
-    }
-
-    &Title--Friday {
-        font-family: 'FC Friday';
-    }
-
-    &Title--Iconic {
-        font-family: 'FC Iconic';
-    }
+	&Title {
+		font-family: 'FC Friday';
+		font-size: 4rem;
+		font-weight: 600;
+		margin: 0;
+	}
 }
 
 .featuredPostCardCoverImage {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
 	&Container {
 		display: grid;
 
@@ -32,5 +22,28 @@
 }
 
 .regularPostCard {
-	background: blue;
+    align-items: flex-start;
+	display: flex;
+	height: 10rem;
+
+	&CoverImage {
+		flex-shrink: 0;
+		height: 10rem;
+		width: 10rem;
+		margin-right: 2rem;
+    }
+
+	&Title {
+		font-family: 'FC Friday';
+		font-size: 3rem;
+		font-weight: 600;
+        margin: 0;
+
+        // Fix amount of lines
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		-webkit-box-pack: end;
+		overflow: hidden;
+	}
 }
