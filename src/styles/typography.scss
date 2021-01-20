@@ -1,0 +1,84 @@
+// CS Prajad
+
+@font-face {
+	font-family: 'CS PraJad';
+	src: local('CS PraJad Bold Italic'), local('CSPraJad-boldItalic'),
+		url('../assets/fonts/Prajad/CSPraJad-boldItalic.woff2') format('woff2');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'CS PraJad';
+	src: local('CS PraJad Italic'), local('CSPraJad-Italic'),
+		url('../assets/fonts/Prajad/CSPraJad-Italic.woff2') format('woff2');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'CS PraJad';
+	src: local('CS PraJad Bold'), local('CSPraJad-bold'),
+		url('../assets/fonts/Prajad/CSPraJad-bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CS PraJad';
+	src: local('CS PraJad'), local('CSPraJad'),
+		url('../assets/fonts/Prajad/CSPraJad.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+// FC Friday
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Italic'), local('FCFridayItalic'),
+        url('../assets/fonts/Friday/FCFridayItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Regular'), local('FCFridayRegular'),
+        url('../assets/fonts/Friday/FCFridayRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Medium'), local('FCFridayMedium'),
+        url('../assets/fonts/Friday/FCFridayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Medium Italic'), local('FCFridayMediumItalic'),
+        url('../assets/fonts/Friday/FCFridayMediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Bold'), local('FCFridayBold'),
+        url('../assets/fonts/Friday/FCFridayBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Bold Italic'), local('FCFridayBoldItalic'),
+        url('../assets/fonts/Friday/FCFridayBoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+

@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Italic'), local('FCFridayItalic'),
+        url('FCFridayItalic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Regular'), local('FCFridayRegular'),
+        url('FCFridayRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Medium'), local('FCFridayMedium'),
+        url('FCFridayMedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Medium Italic'), local('FCFridayMediumItalic'),
+        url('FCFridayMediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Bold'), local('FCFridayBold'),
+        url('FCFridayBold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FC Friday';
+    src: local('FC Friday Bold Italic'), local('FCFridayBoldItalic'),
+        url('FCFridayBoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+

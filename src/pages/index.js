@@ -3,9 +3,8 @@ import { Link, graphql } from 'gatsby';
 
 import SEO from '../components/seo';
 
-import Header from '../components/common/Header/Header';
 import PostCard from '../components/common/PostCard/PostCard';
-import Layout from '../components/layout';
+import Layout from '../components/common/Layout/Layout';
 
 const BlogIndex = ({ data, location }) => {
 	const siteTitle = data.site.siteMetadata?.title || `Title`;
@@ -14,10 +13,13 @@ const BlogIndex = ({ data, location }) => {
 	return (
 		<Layout location={location} title={siteTitle}>
 			<SEO title="All posts" />
-			<Header />
 
 			<div style={{ padding: '0 4rem 2rem' }}>
-				{posts.map(post => <PostCard key={post.key} post={post} />)}
+				{posts.map(post => (
+					<Link to={post.fields.slug} itemProp="url">
+						<PostCard key={post.key} post={post} />{' '}
+					</Link>
+				))}
 			</div>
 
 			{/* <ol style={{ listStyle: `none` }}>
