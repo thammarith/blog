@@ -1,9 +1,31 @@
-.featuredPostCard {
+.postCardBase {	
+	h2 {
+		color: #040404;
+		font-family: 'FC Friday', Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		margin: 0;
+	}
+}
+
+.temporaryPostCard {
+	@extend .postCardBase;
+
 	&Title {
-		font-family: 'FC Friday';
+		font-size: 4rem;
+	}
+
+	&Excerpt {
+		color: #444;
+		margin: 1rem 0 0;
+	}
+}
+
+.featuredPostCard {
+	@extend .postCardBase;
+
+	&Title {
 		font-size: 4rem;
 		font-weight: 600;
-		margin: 0;
 	}
 }
 
@@ -22,6 +44,8 @@
 }
 
 .regularPostCard {
+	@extend .postCardBase;
+
     align-items: flex-start;
 	display: flex;
 	height: 10rem;
@@ -34,10 +58,8 @@
     }
 
 	&Title {
-		font-family: 'FC Friday';
 		font-size: 3rem;
 		font-weight: 600;
-        margin: 0;
 
         // Fix amount of lines
 		display: -webkit-box;

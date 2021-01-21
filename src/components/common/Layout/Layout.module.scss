@@ -1,5 +1,16 @@
+.layoutWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > * {
+        max-width: 88rem;
+        width: 100%;
+    }
+}
+
 .mainLayout {
-    padding: 0 3rem;
     font-family: 'CS PraJad';
     font-size: 2rem;
+	padding: 0 3rem;
 }

@@ -6,6 +6,8 @@ import SEO from '../components/seo';
 import PostCard from '../components/common/PostCard/PostCard';
 import Layout from '../components/common/Layout/Layout';
 
+import styles from './index.module.scss';
+
 const BlogIndex = ({ data, location }) => {
 	const siteTitle = data.site.siteMetadata?.title || `Title`;
 	const posts = data.allMarkdownRemark.nodes;
@@ -14,13 +16,13 @@ const BlogIndex = ({ data, location }) => {
 		<Layout location={location} title={siteTitle}>
 			<SEO title="All posts" />
 
-			<div style={{ padding: '0 4rem 2rem' }}>
+			<section className={styles.indexPosts}>
 				{posts.map(post => (
-					<Link to={post.fields.slug} itemProp="url">
+					<Link to={post.fields.slug} key={post.id} itemProp="url" className={styles.indexPostLink}>
 						<PostCard key={post.key} post={post} />{' '}
 					</Link>
 				))}
-			</div>
+			</section>
 
 			{/* <ol style={{ listStyle: `none` }}>
 				{posts.map(post => {
@@ -77,6 +79,7 @@ export const pageQuery = graphql`
 		}
 		allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
 			nodes {
+				id
 				excerpt
 				fields {
 					slug

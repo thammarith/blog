@@ -13,7 +13,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
 
 	return (
-		<>
+		<div className={styles.layoutWrapper}>
 			<Header />
 			<main className={styles.mainLayout}>
 				{children}
@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
 			  {` `}
 			  <a href="https://www.gatsbyjs.com">Gatsby</a>
 			</footer> */}
-		</>
+		</div>
 	);
 };
 

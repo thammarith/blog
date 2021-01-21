@@ -33,16 +33,15 @@ const Post: React.FC<PostProps> = ({ data, location }) => {
 				title={post.frontmatter.title}
 				description={post.frontmatter.description || post.excerpt}
 			/>
+
 			<article
 				className="blog-post"
 				itemScope
 				itemType="http://schema.org/Article"
 			>
 				<PostHeader title={post.frontmatter.title} />
-				{/* <header>
-					<p>{post.frontmatter.date}</p>
-				</header> */}
 				<section
+					className={styles.postContent}
 					dangerouslySetInnerHTML={{ __html: post.html }}
 					itemProp="articleBody"
 				/>
@@ -51,6 +50,7 @@ const Post: React.FC<PostProps> = ({ data, location }) => {
 					<Bio />
 				</footer>
 			</article>
+
 			<nav className="blog-post-nav">
 				<ul
 					style={{
