@@ -6,6 +6,9 @@ interface FrontMatter {
 	title: string;
 	description: string;
 	date: string;
+	modified?: string;
+	tags?: string[];
+	categories: string[];
 	isFeatured?: boolean;
 }
 interface Post {

@@ -9,21 +9,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 	// Get all markdown blog posts sorted by date
 	const result = await graphql(
-		`
-			{
-				allMarkdownRemark(
-					sort: { fields: [frontmatter___date], order: ASC }
-					limit: 1000
-				) {
-					nodes {
-						id
-						fields {
-							slug
-						}
+		`{
+			allMarkdownRemark(
+				sort: { fields: [frontmatter___date], order: ASC }
+				limit: 1000
+			) {
+				nodes {
+					id
+					fields {
+						slug
 					}
 				}
 			}
-		`
+		}`
 	);
 
 	if (result.errors) {
@@ -83,37 +81,38 @@ exports.createSchemaCustomization = ({ actions }) => {
 	// This way the "MarkdownRemark" queries will return `null` even when no
 	// blog posts are stored inside "content/blog" instead of returning an error
 	createTypes(`
-    type SiteSiteMetadata {
-      author: Author
-      siteUrl: String
-      social: Social
-    }
+		type SiteSiteMetadata {
+			author: Author
+			siteUrl: String
+			social: Social
+		}
 
-    type Author {
-      name: String
-      summary: String
-    }
+		type Author {
+			name: String
+			summary: String
+		}
 
-    type Social {
-      twitter: String
-    }
+		type Social {
+			twitter: String
+		}
 
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
-    }
+		type MarkdownRemark implements Node {
+			frontmatter: Frontmatter
+			fields: Fields
+		}
 
-    type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-      isFeatured: Boolean
-      categories: [String!]!
-      tags: [String!]
-    }
+		type Frontmatter {
+			title: String
+			description: String
+			date: Date @dateformat
+			modified: Date @dateformat
+			isFeatured: Boolean
+			categories: [String!]!
+			tags: [String!]
+		}
 
-    type Fields {
-      slug: String
-    }
-  `);
+		type Fields {
+			slug: String
+		}
+	`);
 };

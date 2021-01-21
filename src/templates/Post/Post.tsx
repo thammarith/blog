@@ -101,6 +101,7 @@ export const pageQuery = graphql`
 			frontmatter {
 				title
 				date(formatString: "D MMMM YYYY", locale: "en-GB")
+				modified(formatString: "D MMMM YYYY", locale: "en-GB")
 				description
 			}
 		}
