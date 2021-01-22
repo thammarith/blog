@@ -51,7 +51,7 @@ const Post: React.FC<PostProps> = ({ data, location }) => {
 				</footer>
 			</article>
 
-			<nav className="blog-post-nav">
+			{/* <nav className="blog-post-nav">
 				<ul
 					style={{
 						display: `flex`,
@@ -76,7 +76,7 @@ const Post: React.FC<PostProps> = ({ data, location }) => {
 						)}
 					</li>
 				</ul>
-			</nav>
+			</nav> */}
 		</Layout>
 	);
 };
