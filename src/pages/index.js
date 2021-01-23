@@ -18,7 +18,7 @@ const BlogIndex = ({ data, location }) => {
 
 			<section className={styles.indexPosts}>
 				{posts.map(post => (
-					<Link to={post.fields.slug} key={post.id} itemProp="url" className={styles.indexPostLink}>
+					<Link to={post.fields.path} key={post.id} itemProp="url" className={styles.indexPostLink}>
 						<PostCard key={post.key} post={post} />{' '}
 					</Link>
 				))}
@@ -83,6 +83,7 @@ export const pageQuery = graphql`
 				excerpt
 				fields {
 					slug
+					path
 				}
 				frontmatter {
 					date(formatString: "D MMM YYYY")

@@ -1,6 +1,8 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const urlHelper = require('./src/helpers/path');
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
 	const { createPage } = actions;
 
@@ -41,16 +43,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 	if (posts.length > 0) {
 		posts.forEach((post, index) => {
 			const previousPostId = index === 0 ? null : posts[index - 1].id;
-			const nextPostId =
-				index === posts.length - 1 ? null : posts[index + 1].id;
+			const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
+
+			const path = urlHelper.getUrlFromSlug(post.fields.slug);
 
 			createPage({
-				path: post.fields.slug,
+				path,
 				component: blogPost,
 				context: {
 					id: post.id,
 					previousPostId,
 					nextPostId,
+					pagePath: path,
 				},
 			});
 		});
@@ -61,12 +65,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 	const { createNodeField } = actions;
 
 	if (node.internal.type === `MarkdownRemark`) {
-		const value = createFilePath({ node, getNode });
+		const value = createFilePath({ node, getNode, trailingSlash: false });
 
 		createNodeField({
 			name: `slug`,
 			node,
-			value,
+			value: value,
+		});
+
+		createNodeField({
+			name: `path`,
+			node,
+			value: urlHelper.getUrlFromSlug(value),
 		});
 	}
 };
@@ -113,6 +123,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 		type Fields {
 			slug: String
+			path: String
 		}
 	`);
 };

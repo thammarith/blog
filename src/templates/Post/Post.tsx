@@ -40,15 +40,14 @@ const Post: React.FC<PostProps> = ({ data, location }) => {
 				itemType="http://schema.org/Article"
 			>
 				<PostHeader title={post.frontmatter.title} />
+
 				<section
 					className={styles.postContent}
 					dangerouslySetInnerHTML={{ __html: post.html }}
 					itemProp="articleBody"
 				/>
-				<hr />
-				<footer>
-					<Bio />
-				</footer>
+
+				<footer style={{ height: '10rem' }}>{/* <Bio /> */}</footer>
 			</article>
 
 			{/* <nav className="blog-post-nav">
@@ -108,6 +107,7 @@ export const pageQuery = graphql`
 		previous: markdownRemark(id: { eq: $previousPostId }) {
 			fields {
 				slug
+				path
 			}
 			frontmatter {
 				title
@@ -116,6 +116,7 @@ export const pageQuery = graphql`
 		next: markdownRemark(id: { eq: $nextPostId }) {
 			fields {
 				slug
+				path
 			}
 			frontmatter {
 				title

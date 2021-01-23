@@ -14,6 +14,7 @@ interface FrontMatter {
 interface Post {
 	excerpt: string;
 	fields: {
+		path: string;
 		slug: string;
 	};
 	frontmatter: FrontMatter;
