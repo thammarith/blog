@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
+import Img from "gatsby-image"
 
 import Layout from '../../components/common/Layout/Layout';
 import Bio from '../../components/bio';
@@ -26,6 +27,7 @@ const Post: React.FC<PostProps> = ({ data, location }) => {
 	const post = data.markdownRemark;
 	const siteTitle = data.site.siteMetadata?.title || `Title`;
 	const { previous, next } = data;
+	const featuredImgFluid = post.frontmatter.featuredImage?.childImageSharp?.fluid
 
 	return (
 		<Layout location={location} title={siteTitle}>
@@ -39,6 +41,9 @@ const Post: React.FC<PostProps> = ({ data, location }) => {
 				itemScope
 				itemType="http://schema.org/Article"
 			>
+
+				{featuredImgFluid && <Img fluid={featuredImgFluid} />}
+
 				<PostHeader title={post.frontmatter.title} />
 
 				<section
@@ -102,6 +107,13 @@ export const pageQuery = graphql`
 				date(formatString: "D MMMM YYYY", locale: "en-GB")
 				modified(formatString: "D MMMM YYYY", locale: "en-GB")
 				description
+				featuredImage {
+					childImageSharp {
+						fluid(maxWidth: 800) {
+							...GatsbyImageSharpFluid
+						}
+					}
+				}
 			}
 		}
 		previous: markdownRemark(id: { eq: $previousPostId }) {

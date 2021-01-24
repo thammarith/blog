@@ -15,6 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ location, title, children }) => {
 	return (
 		<div className={styles.layoutWrapper}>
 			<Header />
+
 			<main className={styles.mainLayout}>
 				{children}
 			</main>

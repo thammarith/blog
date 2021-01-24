@@ -1,15 +1,15 @@
 module.exports = {
 	pathPrefix: '/blog',
 	siteMetadata: {
-		title: 'Gatsby Starter Blog',
+		title: `Thammarith's Blog`,
 		author: {
-			name: 'Kyle Mathews',
-			summary: 'who lives and works in San Francisco building useful things.',
+			name: 'Thammarith',
+			summary: 'a full-stack web engineer, curretly working at Agoda, who happens to love writing',
 		},
-		description: 'A starter blog demonstrating what Gatsby can do.',
+		description: 'The place where I write',
 		siteUrl: 'https://gatsby-starter-blog-demo.netlify.app/',
 		social: {
-			twitter: 'kylemathews',
+			twitter: 'Thammarith',
 		},
 	},
 	plugins: [
@@ -36,7 +36,8 @@ module.exports = {
 					{
 						resolve: 'gatsby-remark-images',
 						options: {
-							maxWidth: 630,
+							maxWidth: 704,
+							wrapperStyle: 'max-width: 88rem'
 						},
 					},
 					{
@@ -63,13 +64,13 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				name: 'Gatsby Starter Blog',
-				short_name: 'GatsbyJS',
+				name: `Thammarith' Blog`,
+				short_name: 'Thammarith',
 				start_url: '/',
 				background_color: '#ffffff',
-				theme_color: '#663399',
+				theme_color: '#ff6520',
 				display: 'minimal-ui',
-				icon: 'src/assets/images/gatsby-icon.png',
+				icon: 'src/assets/images/logo.png',
 			},
 		},
 		'gatsby-plugin-react-helmet',
