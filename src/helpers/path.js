@@ -7,7 +7,7 @@ const slugDivider = '__';
  *  @returns {string} URL from slug
  */
 function getUrlFromSlug(slug) {
-    return slug.split(slugDivider).join('/');
+    return slug.includes('__') ? slug.split(slugDivider).join('/') : slug;
 }
 
 module.exports = {
