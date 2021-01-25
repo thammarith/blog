@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 import Layout from '../../components/common/Layout/Layout';
 import Bio from '../../components/bio';
-import SEO from '../../components/seo';
+import SEO from '../../components/SEO';
 
 import styles from './Post.module.scss';
 
@@ -34,6 +34,8 @@ const Post: React.FC<PostProps> = ({ data, location }) => {
 			<SEO
 				title={post.frontmatter.title}
 				description={post.frontmatter.description || post.excerpt}
+				image={featuredImgFluid.src}
+				path={post.fields.path}
 			/>
 
 			<article
@@ -102,6 +104,9 @@ export const pageQuery = graphql`
 			id
 			excerpt(pruneLength: 160)
 			html
+			fields {
+				path
+			}
 			frontmatter {
 				title
 				date(formatString: "D MMMM YYYY", locale: "en-GB")

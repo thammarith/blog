@@ -6,12 +6,14 @@ module.exports = {
 			name: 'Thammarith',
 			summary: 'a full-stack web engineer, curretly working at Agoda, who happens to love writing',
 		},
+		image: '/default-thumbnail.png',
 		description: 'The place where I write',
-		siteUrl: 'https://gatsby-starter-blog-demo.netlify.app/',
+		siteUrl: 'https://thammarith.github.io/blog',
 		social: {
 			twitter: 'Thammarith',
 		},
 	},
+	flags: { PRESERVE_WEBPACK_CACHE: true },
 	plugins: [
 		// filesystem
 		{
@@ -37,7 +39,7 @@ module.exports = {
 						resolve: 'gatsby-remark-images',
 						options: {
 							maxWidth: 704,
-							wrapperStyle: 'max-width: 88rem'
+							wrapperStyle: 'max-width: 88rem',
 						},
 					},
 					{
