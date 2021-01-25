@@ -61,19 +61,25 @@ const SEO: React.FC<SEOProps> = ({
 		<Helmet titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : undefined}>
 			{/* Vanilla HTML */}
 			<html lang={lang} />
-			<title itemProp="name" lang={lang}>{title || defaultTitle}</title>
+			<title itemProp="name" lang={getLanguageCode(lang)}>{title || defaultTitle}</title>
 
 			<meta name="author" content="Thammarith" />
 			<meta name="description" content={description || defaultDescription} />
 			<meta name="image" content={imagePath} />
 
 			{/* OpenGraph */}
+			<meta property="article:author" content="https://www.facebook.com/Thammarith" />
 			<meta property="og:description" content={description || defaultDescription} />
 			<meta property="og:image" content={imagePath} />
+			<meta property="og:locale" content={getLanguageCode(lang, '_')} />
 			<meta property="og:site_name" content="thammarith's" />
 			<meta property="og:title" content={title || defaultTitle} />
 			<meta property="og:type" content={content} />
 			<meta property="og:url" content={articlePath} />
+			<meta property="profile:first_name" content="Thammarith" />
+			<meta property="profile:last_name" content="Likittheerameth" />
+			<meta property="profile:username" content="thammarith" />
+			<meta property="profile:gender" content="male" />
 
 			{/* Twitter */}
 			<meta name="twitter:card" content="summary_large_image" />
@@ -87,5 +93,13 @@ const SEO: React.FC<SEOProps> = ({
 		</Helmet>
 	);
 };
+
+function getLanguageCode(lang: string, delim: string = '-'): string {
+	switch (lang) {
+		case 'en': return `en${delim}GB`;
+		case 'th': return `th${delim}TH`;
+	}
+	return `en${delim}GB`;
+}
 
 export default SEO;
