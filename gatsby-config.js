@@ -10,7 +10,7 @@ module.exports = {
 		description: 'The place where I write',
 		siteUrl: 'https://thammarith.github.io/blog',
 		social: {
-			twitter: 'Thammarith',
+			twitter: '@thammarith',
 		},
 	},
 	flags: { PRESERVE_WEBPACK_CACHE: true },

@@ -83,7 +83,7 @@ const SEO: React.FC<SEOProps> = ({
 
 			{/* Twitter */}
 			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:creator" content={site.siteMetadata?.social?.twitter ?? 'thammarith'} />
+			<meta name="twitter:creator" content={site.siteMetadata?.social?.twitter ?? '@thammarith'} />
 			<meta name="twitter:description" content={description || defaultDescription} />
 			<meta name="twitter:image" content={imagePath} />
 			<meta name="twitter:title" content={title || defaultTitle} />
