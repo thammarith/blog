@@ -6,6 +6,7 @@ isFeatured: false
 featuredImage: featured-image.png
 categories: ['life', 'thoughts']
 tags: ['social']
+unpublished: true
 ---
 
 ผมไม่รู้!
@@ -37,5 +38,3 @@ tags: ['social']
 หรือทางเจ้าหน้าที่เอง ก็คงคิดว่า การตอบแบบนั้นก็ชัดเจนแล้วนี่นา ก็เรือมันไปท่าน้ำนนท์หนิ ไม่ได้ไปสะพานตากสิน
 
 แต่เหมือนลืมไปว่า ในโลกนี้มีคนที่ไม่รู้อยู่
-
-
