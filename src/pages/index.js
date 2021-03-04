@@ -17,11 +17,13 @@ const BlogIndex = ({ data, location }) => {
 			<SEO title="All posts" />
 
 			<section className={styles.indexPosts}>
-				{posts.map(post => (
-					<Link to={post.fields.path} key={post.id} itemProp="url" className={styles.indexPostLink}>
-						<PostCard key={post.key} post={post} />{' '}
-					</Link>
-				))}
+				{posts
+					.filter(post => !post.frontmatter.isUnpublished)
+					.map(post => (
+						<Link to={post.fields.path} key={post.id} itemProp="url" className={styles.indexPostLink}>
+							<PostCard key={post.key} post={post} />{' '}
+						</Link>
+					))}
 			</section>
 
 			{/* <ol style={{ listStyle: `none` }}>
@@ -90,6 +92,7 @@ export const pageQuery = graphql`
 					title
 					description
 					isFeatured
+					isUnpublished
 				}
 			}
 		}

@@ -21,6 +21,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 					fields {
 						slug
 					}
+					frontmatter {
+						isUnpublished
+					}
 				}
 			}
 		}
@@ -42,23 +45,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 	if (posts.length > 0) {
 		// prettier-ignore
-		posts.forEach((post, index) => {
-			const previousPostId = index === 0 ? null : posts[index - 1].id;
-			const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
+		posts
+			.filter(post => !post.frontmatter.isUnpublished)
+			.forEach((post, index) => {
+				const previousPostId = index === 0 ? null : posts[index - 1].id;
+				const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id;
 
-			const path = urlHelper.getUrlFromSlug(post.fields.slug);
+				const path = urlHelper.getUrlFromSlug(post.fields.slug);
 
-			createPage({
-				path,
-				component: blogPost,
-				context: {
-					id: post.id,
-					previousPostId,
-					nextPostId,
-					pagePath: path,
-				},
+				createPage({
+					path,
+					component: blogPost,
+					context: {
+						id: post.id,
+						previousPostId,
+						nextPostId,
+						pagePath: path,
+					},
+				});
 			});
-		});
 	}
 };
 
@@ -122,6 +127,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 			featuredImage: File @fileByRelativePath
 			categories: [String!]!
 			tags: [String!]
+			isUnpublished: Boolean
 		}
 
 		type Fields {

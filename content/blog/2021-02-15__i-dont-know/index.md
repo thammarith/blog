@@ -6,7 +6,7 @@ isFeatured: false
 featuredImage: featured-image.png
 categories: ['life', 'thoughts']
 tags: ['social']
-unpublished: true
+isUnpublished: true
 ---
 
 ผมไม่รู้!
